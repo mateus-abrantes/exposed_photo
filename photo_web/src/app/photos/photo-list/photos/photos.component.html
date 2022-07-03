@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="no-photos" *ngIf="!photos.length">
+        <div class="px-4 py-5 my-5 text-center h-5 rounded">
+            <i class="text-muted bi bi-images" aria-hidden="true" style="font-size: 12em"></i>
+            <p class="text-center lead mt-2 fs-1 text-muted">
+                Sorry, no photos
+            </p>
+        </div>
+    </div>
+    <ol class="list-unstyled">
+        <li *ngFor="let cols of rows" class="row mb-3">
+            <div *ngFor="let photo of cols" class="col-4" pwDarkenOnHover>
+                <pw-card [title]="photo.description">
+                    <pw-photo img class="bd-placeholder-img card-img-top" [url]="photo.url" [description]="photo.description"></pw-photo>
+                    <div class="d-flex justify-content-end align-items-center">
+                        <div class="btn-group">
+                          <button disabled type="button" class="btn btn-sm btn-outline-secondary"><i class="bi bi-heart-fill me-2" aria-hidden="true"></i> {{photo.likes}}</button>
+                          <button disabled type="button" class="btn btn-sm btn-outline-secondary"><i class="bi bi-chat-dots-fill me-2" aria-hidden="true"></i>{{photo.comments}}</button>
+                        </div>
+                      </div>
+                </pw-card>
+            </div>
+        </li>
+    </ol>
+</div>

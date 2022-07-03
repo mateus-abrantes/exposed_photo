@@ -1,0 +1,3 @@
+<pw-search (onTyping)="filter = $event" [value]="filter"></pw-search>
+<pw-photos [photos]="photos | filterByDescription: filter"></pw-photos>
+<pw-load-button (click)="load()" [hasMore]="hasMore"></pw-load-button>
